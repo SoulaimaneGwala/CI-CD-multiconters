@@ -42,7 +42,7 @@ jobs:
     - name: Docker Loging
       uses: docker/login-action@v3
       with:
-        username: ${{ secrets.DOCKER_ID }}
-        password: ${{ secrets.DOCKER_PASSWORD }}
+        username: soulaimane9js
+        password: wnG52RuKRysBp2T
             
       
