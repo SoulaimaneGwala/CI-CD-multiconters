@@ -57,3 +57,12 @@ jobs:
     - name: Docker push nginx
       run: docker push soulaimane9js/nginx-prod
 
+    - name: Deploy to EB
+      uses: einaregilsson/beanstalk-deploy@v20
+      with:
+      
+        aws_access_key: AKIAWFWKQPT4QZ4C62MN
+        aws_secret_key: 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
+        
+        application_name: tryDockerAgain
+        environment_name: TryDockerAgain-env
