@@ -45,4 +45,15 @@ jobs:
         username: soulaimane9js
         password: wnG52RuKRysBp2T
             
+    - name: Docker push react front end
+      run: docker push soulaimane9js/react-app-prod
+
+    - name: Docker push back end
+      run: docker push soulaimane9js/backend-app-prod
+
+    - name: Docker push worker
+      run: docker push soulaimane9js/worker-prod
       
+    - name: Docker push nginx
+      run: docker push soulaimane9js/nginx-prod
+
