@@ -57,16 +57,29 @@ jobs:
     - name: Docker push nginx
       run: docker push soulaimane9js/nginx-prod
 
-    - name: Deploy to EB
-      uses: einaregilsson/beanstalk-deploy@v20
+    - name: Configure AWS credentials
+      uses: aws-actions/configure-aws-credentials@v1
       with:
-      
-        aws_access_key: AKIAWFWKQPT4QZ4C62MN
-        aws_secret_key: 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
-        
-        application_name: tryDockerAgain
-        environment_name: TryDockerAgain-env
-        region: eu-north-1
-        version_label: 12345
+        aws-access-key-id: AKIAWFWKQPT4QZ4C62MN
+        aws-secret-access-key: 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
+        aws-region: eu-north-1
+
+    - name: Deploy to Elastic Beanstalk
+      run: |
+        aws elasticbeanstalk create-application-version \
+          --application-name tryDockerAgain \
+          --version-label $GITHUB_SHA \
+          --description "GitHub Actions Deployment" \
+          --source-bundle S3Bucket=elasticbeanstalk-eu-north-1-424552725753
+
+        aws elasticbeanstalk update-environment \
+          --environment-name TryDockerAgain-env \
+          --version-label $GITHUB_SHA
+
+        aws elasticbeanstalk wait environment-healthy --environment-name TryDockerAgain-env
+
+      env:
+        EB_BUCKET_NAME: elasticbeanstalk-eu-north-1-424552725753
+        EB_BUCKET_PATH: docker-multi
         
 
