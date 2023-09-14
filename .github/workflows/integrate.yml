@@ -70,7 +70,7 @@ jobs:
           --application-name tryDockerAgain \
           --version-label $GITHUB_SHA \
           --description "GitHub Actions Deployment" \
-          --source-bundle S3Bucket=elasticbeanstalk-eu-north-1-424552725753
+          --source-bundle S3Bucket=elasticbeanstalk-eu-north-1-424552725753,S3Key=S3Docker
 
         aws elasticbeanstalk update-environment \
           --environment-name TryDockerAgain-env \
