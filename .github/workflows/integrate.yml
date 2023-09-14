@@ -67,6 +67,5 @@ jobs:
         application_name: tryDockerAgain
         environment_name: TryDockerAgain-env
         
-        version_label: 12348
         region: "eu-north-1"
 
