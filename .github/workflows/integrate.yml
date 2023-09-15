@@ -66,9 +66,9 @@ jobs:
       with:
         aws_access_key: AKIAWFWKQPT4QZ4C62MN
         aws_secret_key: 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
-        application_name: MyApplicationName
-        environment_name: MyApplication-Environment
-        version_label: 12345
+        application_name: TryDockerAgain
+        environment_name: TryDockerAgain-env
         region: eu-north-1
-        file: my-deployment-package.zip
+        version_label: "-"
+        deployment_package: my-deployment-package.zip
 
