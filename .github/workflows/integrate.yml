@@ -57,6 +57,10 @@ jobs:
     - name: Docker push nginx
       run: docker push soulaimane9js/nginx-prod
 
+    - name: zip directory
+      run: zip -r my-deployment-package.zip * DockerRun.aws.json
+
+
     - name: Deploy to EB
       uses: einaregilsson/beanstalk-deploy@v21
       with:
@@ -66,4 +70,5 @@ jobs:
         environment_name: MyApplication-Environment
         version_label: 12345
         region: eu-north-1
+        file: my-deployment-package.zip
 
