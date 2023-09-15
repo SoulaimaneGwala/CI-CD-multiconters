@@ -25,6 +25,7 @@ after_success:
   - docker push soulaimane9js/worker-prod
   - docker push soulaimane9js/nginx-prod
 
-branches:
-  only:
-    - main
+on:
+  push:
+    branches:
+      - main
