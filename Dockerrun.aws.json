@@ -2,15 +2,30 @@
     "AWSEBDockerrunVersion": 2,
     "containerDefinitions":[
         {
+            "name": "nginx",
+            "image": "soulaimane9js/nginx-prod",
+            "hostname": "nginx",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "links": ["client", "api"],
+            "memory": 200,
+            "memoryReservation": 128
+        },
+        {
             "name": "client",
             "image": "soulaimane9js/react-app-prod",
             "hostname": "client",
             "essential": false,
-            "memory": 100,
+            "memory": 300,
             "memoryReservation": 64
         },
         {
-            "name": "server",
+            "name": "api",
             "image": "soulaimane9js/backend-app-prod",
             "hostname": "api",
             "essential": false,
@@ -24,21 +39,6 @@
             "essential": false,
             "memory": 100,
             "memoryReservation": 64
-        },
-        {
-            "name": "nginx",
-            "image": "soulaimane9js/nginx-prod",
-            "hostname": "nginx",
-            "essential": true,
-            "portMappings": [
-                {
-                    "hostPort": 80,
-                    "containerPort": 80
-                }
-            ],
-            "links": ["client", "server"],
-            "memory": 200,
-            "memoryReservation": 128
         }
     ]
 }
