@@ -6,7 +6,8 @@
             "image": "soulaimane9js/react-app-prod",
             "hostname": "client",
             "essential": false,
-            "memory": 100
+            "memory": 100,
+            "memoryReservation": 64
         },
         {
             "name": "server",
@@ -36,8 +37,8 @@
                 }
             ],
             "links": ["client", "server"],
-            "memory": 100,
-            "memoryReservation": 100
+            "memory": 200,
+            "memoryReservation": 128
         }
     ]
 }
