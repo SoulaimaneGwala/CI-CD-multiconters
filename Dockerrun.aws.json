@@ -11,7 +11,7 @@
         },
         {
             "name": "server",
-            "image": "soulaimane9js/server-app-prod",
+            "image": "soulaimane9js/backend-app-prod",
             "hostname": "api",
             "essential": false,
             "memory": 100,
