@@ -13,14 +13,16 @@
             "image": "soulaimane9js/server-app-prod",
             "hostname": "api",
             "essential": false,
-            "memory": 100
+            "memory": 100,
+            "memoryReservation": 64
         },
         {
             "name": "worker",
             "image": "soulaimane9js/worker-prod",
             "hostname": "worker",
             "essential": false,
-            "memory": 100
+            "memory": 100,
+            "memoryReservation": 64
         },
         {
             "name": "nginx",
@@ -34,7 +36,8 @@
                 }
             ],
             "links": ["client", "server"],
-            "memory": 100
+            "memory": 100,
+            "memoryReservation": 100
         }
     ]
 }
