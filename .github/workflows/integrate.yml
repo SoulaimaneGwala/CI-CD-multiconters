@@ -71,6 +71,6 @@ jobs:
         application_name: Multicontainer-docker-app
         environment_name: Multicontainer-docker-app-env-1
         region: eu-north-1
-        version_label: "-"
+        version_label: "1999"
         deployment_package: project.zip
         use_existing_version_if_available: true
